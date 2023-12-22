@@ -29,7 +29,7 @@ const Navbar = () => {
           <Link to={"/"}>
             <h2 className="logo  font-bold  flex items-center gap-3">
             <GrNotes className="text-4xl text-[#02a388]"/>
-              <span className="text-2xl">Task Management</span>
+              <span className="text-xl md:text-2xl">Task Management</span>
             </h2>
           </Link>
           <div className="menu-btn md:hidden flex items-center justify-between duration-1000 ">
@@ -69,7 +69,7 @@ const Navbar = () => {
                 to={"/about"}
                 className=" px-5 py-1 text-xl font-semibold hover:text-[#02a388] focus:text-[#02a388]  duration-500"
               >
-                About Me
+                About
               </NavLink>
             </li>
             {user ? (
