@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Register = () => {
   const {
@@ -8,9 +10,14 @@ const Register = () => {
     reset,
     formState: { errors },
   } = useForm();
+  const { createUser } = useContext(AuthContext);
 
   const onSubmit = (data) => {
     console.log(data);
+    createUser(data.email, data.password).then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+    });
   };
   return (
     <div className="bg-black">
@@ -35,7 +42,9 @@ const Register = () => {
                     className="input text-black bg-white input-bordered"
                   />
                   {errors.name && (
-                    <span className="text-red-600 text-xl">name is required</span>
+                    <span className="text-red-600 text-xl">
+                      name is required
+                    </span>
                   )}
                 </div>
                 <div className="form-control  ">
@@ -50,7 +59,9 @@ const Register = () => {
                     className="input text-black bg-white input-bordered"
                   />
                   {errors.email && (
-                    <span className="text-red-600 text-xl">email is required</span>
+                    <span className="text-red-600 text-xl">
+                      email is required
+                    </span>
                   )}
                 </div>
                 <div className="form-control">
@@ -67,7 +78,9 @@ const Register = () => {
                     className="input text-black bg-white input-bordered"
                   />
                   {errors.imgUrl && (
-                    <span className="text-red-600 text-xl">img is required</span>
+                    <span className="text-red-600 text-xl">
+                      img is required
+                    </span>
                   )}
                 </div>
                 <div className="form-control">
@@ -80,7 +93,11 @@ const Register = () => {
                     type="password"
                     placeholder="password"
                     name="password"
-                    {...register("password", { required: true })}
+                    {...register("password", {
+                      required: true,
+                      minLength: 6,
+                      pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
+                    })}
                     className="input text-black bg-white input-bordered"
                   />
                   {errors.password?.type === "required" && (

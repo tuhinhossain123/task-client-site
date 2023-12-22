@@ -1,4 +1,5 @@
 // import { useTypewriter } from "react-simple-typewriter";
+import { Link } from "react-router-dom";
 import banner from "../../assets/Home.png";
 const Banner = () => {
   return (
@@ -13,9 +14,9 @@ const Banner = () => {
     >
       <div className="px-2 space-y-4 py-10">
         <div className="flex justify-center">
-          <button className="text-center p-3 rounded text-xl bg-[#02a388] border-none text-white">
+          <Link to="/login" className="text-center p-3 rounded text-xl bg-[#02a388] border-none text-white">
           Let’s Explore
-          </button>
+          </Link>
         </div>
       </div>
     </div>
