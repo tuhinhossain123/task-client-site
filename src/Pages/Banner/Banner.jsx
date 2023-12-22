@@ -12,11 +12,19 @@ const Banner = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="px-2 space-y-4 py-10">
-        <div className="flex justify-center">
-          <Link to="/login" className="text-center p-3 rounded text-xl bg-[#02a388] border-none text-white">
-          Let’s Explore
-          </Link>
+      <div>
+        <div className="mr-0 lg:mr-[700px]">
+          <h2 className="text-5xl text-white font-semibold">
+            Organize Your Task <br /> with Our App
+          </h2>
+          <div className="py-6">
+            <Link
+              to="/login"
+              className="text-center p-2 rounded text-xl bg-[#02a388] border-none text-white"
+            >
+              Let’s Explore
+            </Link>
+          </div>
         </div>
       </div>
     </div>

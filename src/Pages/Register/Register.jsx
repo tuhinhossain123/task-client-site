@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const {
@@ -11,12 +12,14 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const { createUser } = useContext(AuthContext);
+ const  navigate = useNavigate();
 
   const onSubmit = (data) => {
     console.log(data);
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
-      console.log(loggedUser);
+      toast("user create successfully");
+      navigate('/dashboard')
     });
   };
   return (

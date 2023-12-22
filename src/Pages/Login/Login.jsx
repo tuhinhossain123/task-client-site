@@ -2,8 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+
 
 const Login = () => {
   const { singIn, singInWithGoogle } = useContext(AuthContext);
@@ -17,7 +17,7 @@ const Login = () => {
     singIn(email, password).then((result) => {
       const user = result.user;
       console.log(user);
-      toast("login successfully");
+      toast("log in successfully");
       navigate("/dashboard");
     });
   };
@@ -50,7 +50,6 @@ const Login = () => {
                     <FcGoogle className="text-xl mr-3"></FcGoogle>Sign in with
                     Google
                   </button>
-                  <ToastContainer />
                 </div>
                 <div className="divider divider-neutral text-white mb-5">
                   OR
@@ -93,7 +92,6 @@ const Login = () => {
                   <button className="py-2 px-2 font-semibold rounded-full text-lg bg-black text-white">
                     Sign in
                   </button>
-                  <ToastContainer />
                 </div>
               </form>
 
