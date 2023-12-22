@@ -7,7 +7,7 @@ const TaskManagement = () => {
     const {user}=useContext(AuthContext)
     const [data, setData]=useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/task/${user?.email}`)
+        fetch(`https://task-server-site-sigma.vercel.app/task/${user?.email}`)
         .then(res=> res.json())
         .then(data=>{
            setData(data)
