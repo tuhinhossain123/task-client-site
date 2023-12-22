@@ -24,7 +24,7 @@ const Dashboard = () => {
           </li>
           <li className="bg-white text-black rounded">
             <NavLink to="/dashboard/createTask">
-              Create Task
+              Add Todo
             </NavLink>
           </li>
         </ul>

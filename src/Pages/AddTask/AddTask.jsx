@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { toast } from "react-toastify";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const AddTask = () => {
+  const { user } = useContext(AuthContext);
   const handleForm = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -8,7 +11,8 @@ const AddTask = () => {
     const date = form.date.value;
     const priority = form.priority.value;
     const description = form.description.value;
-    const add = { title, date, priority, description };
+    const email = form.email.value;
+    const add = { title, date, priority, description, email };
     console.log(add);
 
     fetch("http://localhost:5000/task", {
@@ -27,11 +31,20 @@ const AddTask = () => {
   return (
     <div className="">
       <div className="">
+        <h2 className="text-center text-3xl font-semibold text-black">
+          Add ToDo
+        </h2>
         <div className="hero-content flex-col">
           <div className="w-full mx-auto shadow-2xl rounded-lg bg-black">
             <div className="card-body">
               <form onSubmit={handleForm}>
                 <div className="flex justify-center gap-5">
+                  <input hidden
+                    type="email"
+                    name="email"
+                    id=""
+                    defaultValue={user?.email}
+                  />
                   <div className="form-control  w-full">
                     <label className="label">
                       <span className="label-text text-white text-lg">

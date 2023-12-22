@@ -4,7 +4,6 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
-  console.log(user);
 
   if (loading) {
     return <span className="loading loading-dots loading-xs"></span>;
